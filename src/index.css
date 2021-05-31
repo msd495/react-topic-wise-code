@@ -1,0 +1,15 @@
+/*
+moving it to inline
+.heading{
+  color:#fa9191;
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: bold;
+  text-shadow: 0px 2px 4px #ffe9c5;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+*/
+.image_div{
+  display: flex;
+  justify-content: center;
+}
