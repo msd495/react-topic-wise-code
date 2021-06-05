@@ -5,6 +5,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 //import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Heading from "./Heading";
+import ImageGallery from "./ImageGallery";
+import Greetings from "./Greetings";
+import {courseName,course1,course2} from "./variables"
 
 //render takes three params 1st). what we have to show 2nd). where we have to show 3rd).  callback function
 //to manipulate dom we need ReactDom
@@ -21,38 +25,24 @@ import reportWebVitals from './reportWebVitals';
 
   */
 
+const showGreetings = true;
 
-const courseName = "react-node"
-const course1= "react"
-const course2="node"
-const curDate = new Date().toLocaleDateString()
-const curTime =  new Date().toLocaleTimeString()
-const image1 = "https://picsum.photos/200/300"
-const image2 = "https://picsum.photos/200/300"
-const image3 = "https://picsum.photos/300/300"
-const heading = {
-    color:'#fa9191',
-    textAlign : 'center',
-    textTransform: 'capitalize',
-    fontWeight: 'bold',
-    textShadow: '0px 2px 4px #ffe9c5',
-    fontFamily: "'Noto Sans JP', sans-serif"
+
+
+function NoGreeting(){
+    return (
+        <span>No Greetings available</span>
+    )
 }
+
 ReactDOM.render(
     <React.Fragment>
-        <div className="heading" style = {heading}>
-            <h1>Image Gallery</h1>
-        </div>
-        <div className = "image_div">
-            <a href="https://picsum.photos/">
-                <img src={image1} alt="random images"/>
-            </a>
-            <a href="https://picsum.photos/">
-                <img src={image2} alt="random images"/>
-            </a>
-            <a href="https://picsum.photos/">
-                <img src={image3} alt="random images"/>
-            </a>
+        <Heading/>
+        <Heading value="Image Gallery"/>
+        <ImageGallery image1Val="https://picsum.photos/200/300"/>
+        {showGreetings===false ?<NoGreeting/>:<Greetings/>}
+        <div>
+            <p>{`courses are ${courseName} and ${course1} and ${course2}`}</p>
         </div>
     </React.Fragment>,
   document.getElementById('root')
